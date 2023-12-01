@@ -1,0 +1,80 @@
+#main logs
+log_file_location : 'src\\utils\\logs.txt'
+#authentication logs
+invalid_login_log : "Invalid login occurred"
+starting_application_log : "Starting with Youtube Transcript Summariser."
+user_exited : "User exited from app"
+
+#admin
+log_user_downgraded_by_admin : 'Admin downgraded user'
+log_user_banned_by_admin : 'Admin banned user'
+log_user_unbanned_by_admin : 'Admin unbanned user'
+log_url_banned_by_admin : 'Admin banned url'
+log_url_unbanned_by_admin : 'Admin unbanned url'
+log_url_premium_listed_by_admin : 'Admin premium listed url'
+
+#database
+log_error_connecting_database : 'Error occurred while connecting to database'
+log_connection_to_database: 'Connection established with DB'
+log_exception_message: 'Something unexpected occured. Backend team will handle it soon.'
+
+#non-premium
+url_submitted_by_non_premium : URL submitted by non-premium user
+user_upgraded_to_premium : User upgraded to premium
+non_premium_user_logout: Non-premium user logged out
+
+
+#premium
+url_submitted_by_premium : URL submitted by premium user
+user_downgraded_to_non_premium : User downgraded to non-premium
+premium_user_logout: Premium user logged out
+premium_user_language_request: Premium user requested message
+premium_user_premium_listing_request: Premium user requested for premium listing
+
+
+#submitted-videp
+summary_generated : Summary file generated
+transcript_generated : Transcript file generated
+
+# DB-ops Success
+tables_created: All tables created in DB
+  # users
+user_created: User created and inserted to DB
+user_updated: User updated and changes done in DB
+  #searches
+search_count_daily_reset: Search date reset to today's date
+search_count_updated: User banned url search count increased in DB
+  #premium_list
+premium_listing_of_url: Premium url pushed to DB by admin
+premium_unlisting_of_url: Premium url removed from DB by admin
+  #messages
+message_sent: Message sent to DB
+message_delete: Message deleted by admin
+  #history
+user_history_saved: User history saved in DB
+  #ban_url
+url_banned: Url banned and saved in Ban DB
+url_unbanned: Url unbanned and removed from DB
+
+
+
+
+# DB-ops Failure
+fail_tables_created: All tables failed to created in DB
+  # users
+fail_user_created: User failed to created and inserted to DB
+fail_user_updated: User failed to updated and changes done in DB
+  #searches
+fail_search_count_daily_reset: Search date failed to reset to today's date
+fail_search_count_updated: User banned url search count failed to increased in DB
+  #premium_list
+fail_premium_listing_of_url: Premium url failed to pushed to DB by admin
+fail_premium_unlisting_of_url: Premium url failed to removed from DB by admin
+  #messages
+fail_message_sent: Message failed to sent to DB
+fail_message_delete: Message failed to deleted by admin
+  #history
+fail_user_history_saved: User history failed to saved in DB
+  #ban_url
+fail_url_banned: Url failed to banned and saved in Ban DB
+fail_url_unbanned: Url failed to unbanned and removed from DB

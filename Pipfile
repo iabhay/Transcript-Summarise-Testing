@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pyyaml = "*"
+youtube-transcript-api = "*"
+shortuuid = "*"
+pytest-cov = "*"
+pwinput = "*"
+prettytable = "*"
+azure-ai-contentsafety = "*"
+googletrans = "*"
+openapi = "*"
+oneai = "*"
+pytest-mock = "*"
+mock-open = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

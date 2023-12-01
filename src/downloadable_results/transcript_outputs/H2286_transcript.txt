@@ -1,0 +1,486 @@
+hey everyone come back to the channel I
+hope you guys are doing extremely well
+so a lot of people were requesting me to
+bring system design content on take you
+forward so what I've done is I've got
+the best guy over on YouTube to get this
+content for you so we have gkcs with us
+hey God of what's up
+what's up
+it's going good man so like the people
+like the people who use taking power
+they're saying system design content and
+I thought I can make a roadmap and that
+will be good but then I thought what do
+I bring you that will be better or best
+what do you think
+yeah yeah that's that's made up yes
+exactly because I thought if I make it
+it'll be good but if I bring you uh
+anyways jokes jokes apart so today's
+video is going to be a road map or
+probably a path that anyone I'm
+repeating this again anyone can take if
+you're a beginner who is preparing for
+system design interviews if you're
+someone with a one-year experience where
+someone with two year three year doesn't
+matter if you want to get into system
+design we're gonna bring you something
+today which is going to be a game
+changer trust me you can learn system
+design end to end for interview when you
+join companies you're not going to be
+lost in those discussions isn't it yeah
+absolutely exactly so
+yeah so it's just not for interviews
+it's also for preparing you when you
+join these companies because I know as a
+fresher when you join a company you're
+literally lost in these discussions so
+got a voter system design if someone is
+watching this and it doesn't knows what
+is this design but system designer is
+the easiest way to explain how a large
+company's code base is working so when
+you buy code this is one file and then
+if you write ready pieces of food that's
+super p60 is surprise uh
+and understand how another system is
+working and how they can use it got it
+so um
+can I say that this thing that I've
+prepared like this particular roadmap
+where people get everything right from
+end to end is this the place where
+anyone can start because as a beginner
+what I've seen is people spend like one
+month to research where to start where
+to start and then that's a loop right so
+can I say if they come over here they
+can directly start off and they don't
+need to go anywhere and can I say this
+yeah you can see it
+it's been designed for other students
+uh 100 don't waste your time you know
+finding the perfect starting point
+because the end goal is the same and you
+yeah
+it was such that's all just go to
+settings and if you like the links then
+read more about them but don't be
+surprised about I have to do these
+things then I can start
+just go through this uh
+yeah so I think you should definitely go
+through this one just start and if and
+click with any topic topic if you feel
+like you need more you can definitely
+then search a bit more and learn about
+it but just uh like don't don't
+procrastinate about these things so
+before moving and in the video I'm gonna
+tell you about the five new hot tech
+jobs in the market that you can directly
+apply now to get an early access now
+these jobs are for software developers
+and the companies that are hiring our
+Academy phone pay graphy cash free
+payments and phone pay now all of these
+jobs are listed on Next Level now what
+is next level next level is an hiring
+platform that uses AI to access your
+skills and matches you with your
+relevant job opportunities Now using AI
+will be giving you an edge over all the
+other candidates so once you create a
+profile you need to take an AI powered
+interview and once you clear this
+interview you will be directly eligible
+to apply for a job so applying through
+next level has a few benefits one of
+them is definitely showcasing your
+personality and expertise through video
+responses to the interview questions by
+doing this what you can do is you can
+get through the first HR round easily
+and you can directly apply for the job
+interview so there will be no HR around
+because you would have already cleared
+it so what are you waiting for the
+application window for all these jobs
+will be closing in a week so don't wait
+there's a link in the description make
+sure you apply right away okay so gaurav
+uh I see like you guys can see the
+roadmap on the screen and we have
+something as part one Basics so
+what is this I can open this like can
+you just give a walk through this like
+if someone doesn't knows it yeah so when
+you are learning about system design
+there are certain things that you need
+to know about absolutely without it
+there's no system on the pad which works
+without for example you can see what
+it's like cash what uh uh what is so
+these Concepts you can predip size now
+please need to go about it and all these
+things to the order so all the basic
+concepts have been put over here so that
+you can just continue
+got it so along with this uh can I say
+this that your core subjects like
+operating system or something like
+computer networks or dbms they should
+also be proceed clear
+Crystal clears are already scanning down
+probably because can you have to keep
+study do you study yeah so yeah my
+suggestion would be you'll pick the
+topic you say don't understand okay you
+can you know over additional study
+um there is never going to be a voice
+when you say I'm 100 or 100 but the best
+thing is you can do this with 50 Roi God
+if you don't know whether you have 50 or
+P or 80. right now if you don't
+understand
+perfect so if you're starting over the
+basics topic like you're watching a
+video if you're watching we're reading
+some blogs any topic you don't
+understand and you feel that okay maybe
+I have studied it a couple of years back
+just go back and like learn about that
+topic and then come back and resume that
+is how you should do this basic section
+after that we come across load balancing
+and this is something which is like a
+very famous term I keep hearing about
+this term on LinkedIn uh maybe you can
+India Pakistan match good example
+right so and at the same time there may
+be a season launch of Game of Thrones
+so you have bad traffic so how do you
+make sure that different types of users
+work pretty well assuming different
+types of content assigned to the right
+places
+correct and it should be like Europe is
+running at 8 years
+exactly perfect perfect uh explanation
+so we've attached videos from gaurav's
+YouTube channel so it's gonna explain
+exactly in the similar fashion and trust
+me I've been studying from you I think
+from 2017 ETV you're making these code
+shift Solutions so yeah he he was the
+first guy I was making quotes of
+solution so
+you can just study from these videos and
+uh going forward data stores uh I think
+self-explanatory databases
+is
+different types of detail structures
+um and how do you
+think yes so you
+yeah so most of the times uh over
+Twitter over LinkedIn you'll keep
+hearing about these things uh MySQL or
+like no SQL like like you keep hearing
+these terms so it's important that you
+know what are these things otherwise
+there will be discussions they'll be
+like oh yeah so it's better that you
+should know about these things as well
+consistency uh versus yeah what about
+this oh yeah this is my favorite yeah
+the most reliable topic ever but that is
+available you have to actually
+understand why or what it means or why
+is it sometimes you know so important so
+what is data consistency uh what are
+some read-offs transactions uh the Caps
+you know in its settings so what we have
+done here this VM picked up just three
+videos like but they are in such detail
+okay I after this you you probably won't
+have any doubts on what is data
+subsistence how is it related
+I've seen so many interviews about oh is
+your system consistent about available
+so you may not be understanding this is
+the first time you're watching us I'm
+saying you but trust me this is such a
+common misconception that interviews and
+and even Engineers have that it's good
+to go got it so yeah like we're not
+going to depth because uh you'll not
+understand unless until you go through
+these topics
+so the next one is message queues you
+can definitely go through this as well
+and after this this is devops Concepts
+now I'll tell you about like I'll share
+my experience a single point of failure
+so recently we launched merchandise
+store and we have a payment Gateway so
+we had just one payment Gateway and that
+went down so this is what you call as a
+single point of failure so when you are
+too much dependent on one thing and it
+goes down your entire thing is down so
+like I do one thing for sure gaurav
+technically it's not 100 possible to
+achieve uh like to remove this thing the
+single point of failure uh what's your
+viewpoint on this
+so that's the whole concept that you
+don't have audio X in one basket yeah
+well it's not possible sometimes because
+you can't move away from the basket or
+early
+one basket
+um
+like all of these Concepts which are
+around how do you maintain your system
+you make sure that even if one crashes
+like yeah
+so these things are not in the back top
+and then you don't even want to know
+that this happened later on what to see
+the page
+in the real life match so uh these
+things will help you understand as an
+engineer how it works in the behind the
+scenes just like databases
+but it happens behind the scenes that
+you should know about it
+is the same thing cool sauce
+yeah so do go through it because it's
+actually important if you're designing
+something uh and when it's good to know
+about these things caching uh my
+favorite topic it's I think I think it's
+in every system can like if you don't
+put it then either either you are as you
+said uh
+if you're not putting it I think I think
+all about to add something uh I think
+this is one of the topics which as a
+fresher you relate a lot because you'll
+learn about data structures you have
+been like this is one of the concepts
+like the hashing concept is primarily
+used here and uh probably one of the
+data structures which you will see on a
+daily basis which is hashing so do we
+need to explain much more about this
+caching okay
+is just keeping your part of your
+database in memory yeah so you just
+pause this line it's unless
+anyways let's move to the next one micro
+Services ah adding on Twitter on
+LinkedIn microservices versus monolith
+The World Keeps okay microservices are
+very good monolith so it keeps like the
+opinion keeps changing isn't it so
+right right
+it's an important topic do not miss it
+no matter which company you join you've
+got to have an idea about how things
+work so it's a it's a very important API
+Gateway is uh I think um it's it's
+something which is in every system so
+going to authentication uh again if
+you're like I think what's the best way
+to learn authentication is definitely
+like watching these videos but do you
+think like implementing a project will
+like help them understand these topics
+you're right
+yeah exactly
+um
+in almost every uh system that you go in
+there's a login stuff right so it's very
+important to learn it and the best way
+is definitely read about this and
+probably implement uh some of the uh
+things so that you understand how it is
+working behind the scene as well you
+come to the implementation part
+afterwards system design trade-offs uh
+whenever you design a system you just
+cannot make sure that everything is what
+do you say like what proverb to use
+everything is perfect yeah so yeah when
+you designed a system everything cannot
+be perfect you cannot satisfy 100 of the
+users so you go out to trade of
+something between so these things are
+something where like these topics you
+gotta cover after that practice problems
+I think every system does an interview
+they're like design a WhatsApp design a
+Tinder so
+if if they practice these things uh can
+I say that uh if I suddenly give an out
+of the box system and with all the
+concepts
+I think they will be able to solve it do
+you think
+yeah they should be uh I mean of course
+uh this is the other lot of problems so
+if you go through all of them it's not
+just like that problem get it holistic
+picture for example we mentioned cashing
+out application some of these things are
+just gendered so put on that uh there
+are certain things to learn in certain
+systems but so for example payments I
+mean how do you minus three bits on uh
+how do you manage Google Maps so
+location-based databases these single
+Concepts when you pick them up then you
+build the overall understand um
+so remember one thing yeah I'm sorry
+about that so I think one thing I'll
+definitely like to mention over here is
+people are coming from the DS algo world
+so in data structures algorithm there is
+like one or two Optimal Solutions and
+you gotta give that solution right or
+somewhere near about that in system
+design it's always an open-ended
+discussion where you talk about
+trade-offs so you can never have a
+perfect answer and there is no certain
+answer to anything like God of my design
+WhatsApp in some different way I might
+design it in some different way so it's
+not a necessity that how he has taught
+in this video you have to exactly put
+the same things in the interview your
+brain can work better than both of us
+and you can probably design something
+better so it's always an open-ended
+discussion so make sure that you don't
+take it as DS I'll go system design is
+something different so go through all of
+these practice problems and try to
+design these systems on your end after
+this we come up to additional resources
+after you've gone through all of these
+things if you still need something else
+you can definitely go through these uh
+additional resources one of the
+resources I'll recommend is gaurav's
+interview ready course why am I seeing
+that is kind of one appreciation
+because recently I've been trying to
+learn system design because it's
+required because you're also building a
+product so we need it so I was reading a
+lot of Concepts one thing that stood out
+was the premium Community you have
+because I do read the comments on the
+YouTube videos comments are great uh
+sometimes you get comments like I love
+you but yeah and all of these things
+makes me feel good but when I was going
+through the comments of your course
+like the questions asked by these
+Engineers like some of them where stuff
+maybe some of their managers the
+questions the level of questions they're
+like amazing and the discussion thread I
+think that's something which is very
+great about your course and really well
+managed so if you are planning to take
+an interview like a course around system
+design I think it should not look Beyond
+uh interview ready system design because
+it's highly affordable and it's
+something you should not miss out it's a
+lot of three things which stands out for
+your course like if you want to say
+and
+about it is
+find more videos
+so this keeps happening
+you mentioned about the company which is
+amazing I love taking uh you know every
+every two once we meet and we discuss
+the system we discuss styles on suicide
+and the conversations are amazing
+yeah I can I can realize uh when staff
+Engineers directors managers sit around
+it's yeah it's going to be something
+like you're working in a company
+so they keep coming back yeah uh so uh
+all the videos are like primarily you
+know there are unlimited Justice for uh
+for the price because for me it's just
+like dating a class so what makes the
+economy of skill and for everyone else
+it's like an amazing place exactly so uh
+a lot of content constant updates to the
+latest uh you know Season systems
+raising the ability which meets lights
+nice nice so uh anything special for
+Take It Forward like people coming in
+from TK forward El discount you're gonna
+give
+take you forward is actually the name of
+the coupon uh okay okay
+it's the best discount out there okay
+all right uh it's just for survival and
+spirals comedy so they yeah so yeah you
+can definitely apply the coupon uh take
+you forward its EU not y o u it's you so
+yeah yeah
+anyway so
+yes uh so we put up this entire
+resources over here uh if you're
+starting off there's a link in the
+description make sure you check out all
+of these resources and it's more than
+enough to start and understand how
+things work and it is important because
+nowadays everyone knows assistant design
+and a lot of companies have starting has
+started to have like one road assistant
+right so it's important you know around
+it and I feel going forward there's
+going to be a bunch of system design
+rounds coming across in most of the
+levels so it's good that you start
+preparing and it'll be slightly easier
+when you join company so got up uh thank
+you so much for helping me uh where the
+compilation of resources uh uh it's it
+will help everyone out there trust me
+and thank you for bringing out the
+videos uh you started putting out a lot
+of content on YouTube recently so in
+case you haven't checked out God's
+Channel he keeps on talking about system
+design and all of these things so make
+sure you check it out there will be a
+link in the description uh once again
+thank you and uh hopefully uh we'll do
+some more videos in the future and
+because
+exactly uh Gula so um in case you're
+still watching the link will be in the
+description make sure you like this
+video subscribe to uh Striker and take
+you forwards Channel and also check out
+gaurav's channel And subscribe to him as
+well this will be wrapping up this video
+let's read some of the videos
+whenever your heart is broken don't ever
+forget your golden I I will find the
+light
