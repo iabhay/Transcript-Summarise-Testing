@@ -88,157 +88,39 @@ ENTER_URL: Enter URL -
 NO_USER_FOUND: No Such User Found
 NO_URL_FOUND: No Such Banned URL Found
 PROCESSING_PROMPT: Processing...
-LANGUAGES: |
-  LANG CODE - af       , LANGUAGE -   Afrikaans
-  LANG CODE - ak       , LANGUAGE -   Akan
-  LANG CODE - sq       , LANGUAGE -   Albanian
-  LANG CODE - am       , LANGUAGE -   Amharic
-  LANG CODE - ar       , LANGUAGE -   Arabic
-  LANG CODE - hy       , LANGUAGE -   Armenian
-  LANG CODE - az       , LANGUAGE -   Azerbaijani
-  LANG CODE - eu       , LANGUAGE -   Basque
-  LANG CODE - be       , LANGUAGE -   Belarusian
-  LANG CODE - bem      , LANGUAGE -   Bemba
-  LANG CODE - bn       , LANGUAGE -   Bengali
-  LANG CODE - bh       , LANGUAGE -   Bihari
-  LANG CODE - xx-bork  , LANGUAGE -   Bork, bork, bork!
-  LANG CODE - bs       , LANGUAGE -   Bosnian
-  LANG CODE - br       , LANGUAGE -   Breton
-  LANG CODE - bg       , LANGUAGE -   Bulgarian
-  LANG CODE - km       , LANGUAGE -   Cambodian
-  LANG CODE - ca       , LANGUAGE -   Catalan
-  LANG CODE - chr      , LANGUAGE -   Cherokee
-  LANG CODE - ny       , LANGUAGE -   Chichewa
-  LANG CODE - zh-CN    , LANGUAGE -   Chinese (Simplified)
-  LANG CODE - zh-TW    , LANGUAGE -   Chinese (Traditional)
-  LANG CODE - co       , LANGUAGE -   Corsican
-  LANG CODE - hr       , LANGUAGE -   Croatian
-  LANG CODE - cs       , LANGUAGE -   Czech
-  LANG CODE - da       , LANGUAGE -   Danish
-  LANG CODE - nl       , LANGUAGE -   Dutch
-  LANG CODE - xx-elmer , LANGUAGE -   Elmer Fudd
-  LANG CODE - en       , LANGUAGE -   English
-  LANG CODE - eo       , LANGUAGE -   Esperanto
-  LANG CODE - et       , LANGUAGE -   Estonian
-  LANG CODE - ee       , LANGUAGE -   Ewe
-  LANG CODE - fo       , LANGUAGE -   Faroese
-  LANG CODE - tl       , LANGUAGE -   Filipino
-  LANG CODE - fi       , LANGUAGE -   Finnish
-  LANG CODE - fr       , LANGUAGE -   French
-  LANG CODE - fy       , LANGUAGE -   Frisian
-  LANG CODE - gaa      , LANGUAGE -   Ga
-  LANG CODE - gl       , LANGUAGE -   Galician
-  LANG CODE - ka       , LANGUAGE -   Georgian
-  LANG CODE - de       , LANGUAGE -   German
-  LANG CODE - el       , LANGUAGE -   Greek
-  LANG CODE - gn       , LANGUAGE -   Guarani
-  LANG CODE - gu       , LANGUAGE -   Gujarati
-  LANG CODE - xx-hacker, LANGUAGE -   Hacker
-  LANG CODE - ht       , LANGUAGE -   Haitian Creole
-  LANG CODE - ha       , LANGUAGE -   Hausa
-  LANG CODE - haw      , LANGUAGE -   Hawaiian
-  LANG CODE - iw       , LANGUAGE -   Hebrew
-  LANG CODE - hi       , LANGUAGE -   Hindi
-  LANG CODE - hu       , LANGUAGE -   Hungarian
-  LANG CODE - is       , LANGUAGE -   Icelandic
-  LANG CODE - ig       , LANGUAGE -   Igbo
-  LANG CODE - id       , LANGUAGE -   Indonesian
-  LANG CODE - ia       , LANGUAGE -   Interlingua
-  LANG CODE - ga       , LANGUAGE -   Irish
-  LANG CODE - it       , LANGUAGE -   Italian
-  LANG CODE - ja       , LANGUAGE -   Japanese
-  LANG CODE - jw       , LANGUAGE -   Javanese
-  LANG CODE - kn       , LANGUAGE -   Kannada
-  LANG CODE - kk       , LANGUAGE -   Kazakh
-  LANG CODE - rw       , LANGUAGE -   Kinyarwanda
-  LANG CODE - rn       , LANGUAGE -   Kirundi
-  LANG CODE - xx-klingon ,LANGUAGE -   Klingon
-  LANG CODE - kg       , LANGUAGE -   Kongo
-  LANG CODE - ko       , LANGUAGE -   Korean
-  LANG CODE - kri      , LANGUAGE -   Krio (Sierra Leone)
-  LANG CODE - ku       , LANGUAGE -   Kurdish
-  LANG CODE - ckb      , LANGUAGE -   Kurdish (Soranî)
-  LANG CODE - ky       , LANGUAGE -   Kyrgyz
-  LANG CODE - lo       , LANGUAGE -   Laothian
-  LANG CODE - la       , LANGUAGE -   Latin
-  LANG CODE - lv       , LANGUAGE -   Latvian
-  LANG CODE - ln       , LANGUAGE -   Lingala
-  LANG CODE - lt       , LANGUAGE -   Lithuanian
-  LANG CODE - loz      , LANGUAGE -   Lozi
-  LANG CODE - lg       , LANGUAGE -   Luganda
-  LANG CODE - ach      , LANGUAGE -   Luo
-  LANG CODE - mk       , LANGUAGE -   Macedonian
-  LANG CODE - mg       , LANGUAGE -   Malagasy
-  LANG CODE - ms       , LANGUAGE -   Malay
-  LANG CODE - ml       , LANGUAGE -   Malayalam
-  LANG CODE - mt       , LANGUAGE -   Maltese
-  LANG CODE - mi       , LANGUAGE -   Maori
-  LANG CODE - mr       , LANGUAGE -   Marathi
-  LANG CODE - mfe      , LANGUAGE -   Mauritian Creole
-  LANG CODE - mo       , LANGUAGE -   Moldavian
-  LANG CODE - mn       , LANGUAGE -   Mongolian
-  LANG CODE - sr-ME    , LANGUAGE -   Montenegrin
-  LANG CODE - ne       , LANGUAGE -   Nepali
-  LANG CODE - pcm      , LANGUAGE -   Nigerian Pidgin
-  LANG CODE - nso      , LANGUAGE -   Northern Sotho
-  LANG CODE - no       , LANGUAGE -   Norwegian
-  LANG CODE - nn       , LANGUAGE -   Norwegian (Nynorsk)
-  LANG CODE - oc       , LANGUAGE -   Occitan
-  LANG CODE - or       , LANGUAGE -   Oriya
-  LANG CODE - om       , LANGUAGE -   Oromo
-  LANG CODE - ps       , LANGUAGE -   Pashto
-  LANG CODE - fa       , LANGUAGE -   Persian
-  LANG CODE - xx-pirate, LANGUAGE -   Pirate
-  LANG CODE - pl       , LANGUAGE -   Polish
-  LANG CODE - pt-BR    , LANGUAGE -   Portuguese (Brazil)
-  LANG CODE - pt-PT    , LANGUAGE -   Portuguese (Portugal)
-  LANG CODE - pa       , LANGUAGE -   Punjabi
-  LANG CODE - qu       , LANGUAGE -   Quechua
-  LANG CODE - ro       , LANGUAGE -   Romanian
-  LANG CODE - rm       , LANGUAGE -   Romansh
-  LANG CODE - nyn      , LANGUAGE -   Runyakitara
-  LANG CODE - ru       , LANGUAGE -   Russian
-  LANG CODE - gd       , LANGUAGE -   Scots Gaelic
-  LANG CODE - sr       , LANGUAGE -   Serbian
-  LANG CODE - sh       , LANGUAGE -   Serbo-Croatian
-  LANG CODE - st       , LANGUAGE -   Sesotho
-  LANG CODE - tn       , LANGUAGE -   Setswana
-  LANG CODE - crs      , LANGUAGE -   Seychellois Creole
-  LANG CODE - sn       , LANGUAGE -   Shona
-  LANG CODE - sd       , LANGUAGE -   Sindhi
-  LANG CODE - si       , LANGUAGE -   Sinhalese
-  LANG CODE - sk       , LANGUAGE -   Slovak
-  LANG CODE - sl       , LANGUAGE -   Slovenian
-  LANG CODE - so       , LANGUAGE -   Somali
-  LANG CODE - es       , LANGUAGE -   Spanish
-  LANG CODE - es-419   , LANGUAGE -   Spanish (Latin American)
-  LANG CODE - su       , LANGUAGE -   Sundanese
-  LANG CODE - sw       , LANGUAGE -   Swahili
-  LANG CODE - sv       , LANGUAGE -   Swedish
-  LANG CODE - tg       , LANGUAGE -   Tajik
-  LANG CODE - ta       , LANGUAGE -   Tamil
-  LANG CODE - tt       , LANGUAGE -   Tatar
-  LANG CODE - te       , LANGUAGE -   Telugu
-  LANG CODE - th       , LANGUAGE -   Thai
-  LANG CODE - ti       , LANGUAGE -   Tigrinya
-  LANG CODE - to       , LANGUAGE -   Tonga
-  LANG CODE - lua      , LANGUAGE -   Tshiluba
-  LANG CODE - tum      , LANGUAGE -   Tumbuka
-  LANG CODE - tr       , LANGUAGE -   Turkish
-  LANG CODE - tk       , LANGUAGE -   Turkmen
-  LANG CODE - tw       , LANGUAGE -   Twi
-  LANG CODE - ug       , LANGUAGE -   Uighur
-  LANG CODE - uk       , LANGUAGE -   Ukrainian
-  LANG CODE - ur       , LANGUAGE -   Urdu
-  LANG CODE - uz       , LANGUAGE -   Uzbek
-  LANG CODE - vi       , LANGUAGE -   Vietnamese
-  LANG CODE - cy       , LANGUAGE -   Welsh
-  LANG CODE - wo       , LANGUAGE -   Wolof
-  LANG CODE - xh       , LANGUAGE -   Xhosa
-  LANG CODE - yi       , LANGUAGE -   Yiddish
-  LANG CODE - yo       , LANGUAGE -   Yoruba
-  LANG CODE - zu       , LANGUAGE -   Zulu
-  Enter Lang Code :
+NUMBERS_ONLY_PROMPT: Numbers only
+INVALID_USERNAME_PROMPT: Invalid Username!
+INVALID_PASSWORD_PROMPT: Invalid Password!
+REGISTRATION_SUCCESS: Registered successfully!
+ALREADY_EXIST: | 
+  Already registered!!
+  Try login!!
+VALID_URL: Enter valid url.
+ALREADY_BANNED_URL: Already Banned Url
+VIDEO_NOT_SUPPORTED: This video is not supported. Please try other videos.
+EXHAUSTED_BAN: |
+  You have exhausted ban search limits in a day.
+  YOU ARE BANNED.
+  PLEASE CONTACT ADMIN!!
+BANNED_CONTENT: Bad Content
+UPGRADED_PREMIUM: You are now upgraded to premium.
+DOWNGRADED_PREMIUM: You are downgraded.
+ENTER_VALID_CHOICE: Enter valid choice.
+BACK: Back..
+ANALYSE_TEXT_FAILED: Analyze text failed.
+SUMMARY_GENERATION_FAILED: Summary Generation Failed. Try Again!
+USER_BANNED: User banned
+USER_UNBANNED: User unbanned
+URL_BANNED: URL banned
+URL_UNBANNED: URL unbanned
+PREMIUM_LISTING_DONE: Premium Listing done for
+ENTER_MESSAGE: 'Enter Message for admin: '
+MESSAGE_SENT: Message sent successfully.
+ENTER_URL_FOR_PREMIUMLISTING: 'Enter URL for premium listing: '
+ACKNOWLEDGEMENT: Once approved by admin, it'll be added to your premium listing.
+NO_DATA_EXIST: No data exists
+MESSAGE_TO_ADMIN_FOR_UNBAN: 'Send Message to Admin for Unban: '
+MESSAGE_NOT_SENT: Message not sent successfully.
 CONFIRM_PROMPT: |
   Are you Sure?
   1. Yes
@@ -247,3 +129,4 @@ CONFIRM_PROMPT: |
 CONFIRM_PROMPT_LENGTH: 2
 ADMIN_USERNAME : admin
 ADMIN_PASSWORD : '@Admin1234'
+SHORT_UUID_CONSTRAINTS: "123456789"

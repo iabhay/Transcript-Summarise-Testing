@@ -1,8 +1,11 @@
 import logging
-import functools
-import sqlite3
 from config.log_config.log_config import LogStatements
-logger = logging.getLogger('exception_handler')
+from functools import wraps
+from typing import Callable
+from utils.custom_exception import CustomBaseException
+from utils.responses import ErrorResponse
+
+logger = logging.getLogger(__name__)
 
 
 def handle_exceptions(default_response="Enter Carefully."):
@@ -24,11 +27,16 @@ def handle_exceptions(default_response="Enter Carefully."):
                     # Handle the exception and provide the default response
                     print(default_response)
                     logger.debug(f"Exception occurred: {e}")
+
         return wrapper
+
     return decorator
 
 
-def db_exception(default_success_response="", default_failure_response=LogStatements.log_exception_message):
+def db_exception(
+    default_success_response="",
+    default_failure_response=LogStatements.log_exception_message,
+):
     def decorator(func):
         def wrapper(*args, **kwargs):
             while True:
@@ -43,43 +51,18 @@ def db_exception(default_success_response="", default_failure_response=LogStatem
                     print(f"Exception occurred: {e}")
                     print(default_failure_response)
                     logger.debug(default_failure_response)
+
         return wrapper
+
     return decorator
 
-# def error_handler(func):
-#     """
-#         Method which acts as decorator for handling all types of exception
-#         Parameter = function
-#         Return type = function
-#     """
-#     @functools.wraps(func)
-#     def wrapper(*args : tuple,**kwargs : dict) -> None:
-#         """
-#             Method which handles exception
-#             Parameter = *args, **kwargs
-#             Return type = None
-#         """
-#         try:
-#             return func(*args,**kwargs)
-#         except sqlite3.IntegrityError as err:
-#             logger.exception(err)
-#             print(PromptConfig.DB_INTEGRITY_ERROR)
-#         except sqlite3.OperationalError as err:
-#             logger.exception(err)
-#             print(PromptConfig.DB_ERROR_MESSAGE)
-#         except sqlite3.ProgrammingError as err:
-#             logger.exception(err)
-#             print(PromptConfig.DB_ERROR_MESSAGE)
-#         except sqlite3.Error as err:
-#             logger.exception(err)
-#             print(PromptConfig.DB_GENERAL_ERROR)
-#         except ValueError as err:
-#             logger.exception(err)
-#             print(PromptConfig.INVALID_INPUT_ERROR)
-#         except TypeError as err:
-#             logger.exception(err)
-#             print(PromptConfig.INVALID_INPUT_ERROR)
-#         except Exception as err:
-#             logger.exception(err)
-#             print(PromptConfig.GENERAL_EXCEPTION_MSG)
-#     return wrapper
+
+def custom_error_handler(func: Callable) -> Callable:
+    @wraps(func)
+    def wrapper(*args: tuple, **kwargs: dict) -> None:
+        try:
+            return func(*args, **kwargs)
+        except CustomBaseException as custom_error:
+            return ErrorResponse.jsonify_error(custom_error), custom_error.error_code
+
+    return wrapper

@@ -16,6 +16,16 @@ openapi = "*"
 oneai = "*"
 pytest-mock = "*"
 mock-open = "*"
+flask = "*"
+flask-jwt-extended = "*"
+flask-smorest = "*"
+passlib = "*"
+marshmallow = "*"
+python-dotenv = "*"
+gunicorn = "*"
+requests = "*"
+mysql-connector-python = "*"
+azure-ai-textanalytics = "==5.3.0"
 
 [dev-packages]
 

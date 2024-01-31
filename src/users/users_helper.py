@@ -1,13 +1,12 @@
 import logging
 from config.config import Config
-from database.db_ops.users_db import UsersDB
 from config.log_config.log_config import LogStatements
-logger = logging.getLogger('users_helper')
+
+logger = logging.getLogger(__name__)
 
 
 class UsersHelper:
     def __init__(self, uid):
-        self.user = UsersDB(uid)
         self.uid = uid
 
     def upgrade_to_premium(self):
@@ -17,15 +16,15 @@ class UsersHelper:
                 if ask == 1:
                     self.user.update_user("role", "premiumuser")
                     logger.info(LogStatements.user_upgraded_to_premium)
-                    print("You are now upgraded to premium.")
-                    return False
+                    print(Config.UPGRADED_PREMIUM)
+                    return None
                 elif ask == 2:
-                    print("Back..")
+                    print(Config.BACK)
             else:
-                print("Enter valid choice.")
+                print(Config.ENTER_VALID_CHOICE)
         except ValueError:
-            print("Enter Numbers only.")
-        return None
+            print(Config.NUMBERS_ONLY_PROMPT)
+        return True
 
     def downgrade_to_basic(self):
         try:
@@ -34,12 +33,12 @@ class UsersHelper:
                 if ask == 1:
                     self.user.update_user("role", "nonpremiumuser")
                     logger.info(LogStatements.user_downgraded_to_non_premium)
-                    print("You are downgraded!!")
+                    print(Config.DOWNGRADED_PREMIUM)
                     return False
                 elif ask == 2:
-                    print("back..")
+                    print(Config.BACK)
             else:
-                print("Enter valid choice.")
+                print(Config.ENTER_VALID_CHOICE)
         except ValueError:
-            print("Enter Numbers only.")
+            print(Config.NUMBERS_ONLY_PROMPT)
         return None
