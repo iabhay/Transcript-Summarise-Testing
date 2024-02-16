@@ -1,13 +1,13 @@
+"""Module for Content check functionality"""
+
 import logging
 import os
 from azure.ai.contentsafety import ContentSafetyClient
 from azure.ai.contentsafety.models import TextCategory
 from azure.core.credentials import AzureKeyCredential
-from azure.core.exceptions import HttpResponseError
 from azure.ai.contentsafety.models import AnalyzeTextOptions
 from pathlib import Path
 from dotenv import load_dotenv
-from config.config import Config
 
 logger = logging.getLogger(__name__)
 
@@ -16,18 +16,36 @@ load_dotenv(dotenv_path=dotenv_path)
 
 
 class ContentChecker:
-    def __init__(self):
+    """
+    Class for Checking content of transcript
+    ...
+    Methods:
+    -------
+    Constructor() -> Setting Endpoint and key of api from environment variables
+    analyze_text() -> API called for fetching Content based categorisation of transcript.
+    """
+
+    def __init__(self) -> None:
+        """
+        Method to set API credentials using Environment Variables
+        Parameter-> self
+        Return Type -> None
+        """
         self.endpoint = os.getenv("AI_ENDPOINT")
         self.key = AzureKeyCredential(os.getenv("AI_KEY"))
 
-    def analyze_text(self, text):
-        text = text[:10000]
+    def analyze_text(self, transcript: str) -> None:
+        """
+        Method to send API request categorise the transcript generated
+        Parameter -> transcript: str
+        Return Type -> dict
+        """
+        transcript = transcript[:10000]
         client = ContentSafetyClient(self.endpoint, self.key)
-        request = AnalyzeTextOptions(text=text)
+        request = AnalyzeTextOptions(text=transcript)
         try:
             response = client.analyze_text(request)
         except Exception:
-            print(Config.ANALYSE_TEXT_FAILED)
             return False
         else:
             hate_result = next(

@@ -1,6 +1,6 @@
 import yaml
 
-FPATH = "src/config/log_config/log_statements.yml"
+FPATH = "config/log_config/log_statements.yml"
 
 
 class LogStatements:

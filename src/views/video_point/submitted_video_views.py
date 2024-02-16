@@ -1,13 +1,36 @@
+"""Module for views of Video Service functionalities."""
+
 from business_logic.submittedvideo.video_service import VideoService
 from config.config import Config
 from utils.input_validator import url_validation
 
+
 class VideoView:
-    def __init__(self, uid) -> None:
+    """
+    Class for showing views of Video Service functionalities.
+    ...
+    Methods:
+    -------
+    Constructor() -> Setting Uid and Reation of object of Video Service.
+    submit_video() -> method for showing menu of bideo service functionalities.
+    submitted_video_module() -> method for showing views of post summary generation of fucntionalities.
+    """
+
+    def __init__(self, uid: str) -> None:
+        """
+        Constructor method to create object of Video Service
+        Parameter -> uid: str
+        Return Type -> None
+        """
         self.uid = uid
         self.video_service = VideoService(uid)
 
     def submit_video(self):
+        """
+        Method to show views of functionalities of video service
+        Parameter -> self
+        Return Type -> bool
+        """
         user_url = input(Config.SUBMIT_VIDEO_PROMPT)
         user_url = user_url.strip()
         if user_url == "1":
@@ -37,6 +60,11 @@ class VideoView:
             return True
 
     def submitted_video_module(self, transcript, summary, hid):
+        """
+        Method to show views of functionalities of post summary generation feature
+        Parameter -> transcript: str, summary: str, hid: str
+        Return Type -> None
+        """
         while True:
             try:
                 ask = int(input(Config.AFTER_SUBMITTING_URL_PROMPT))

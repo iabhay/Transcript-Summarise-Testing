@@ -1,8 +1,8 @@
 import pytest
 import builtins
 import sys
-from src.users.admin.admin_point import Admin
-from src.users.admin.admincontroller import AdminController
+# from users_controllers.admin.admin_point import Admin
+# from users_controllers.admin.admincontroller import AdminController
 from src.config.config import Config
 
 

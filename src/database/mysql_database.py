@@ -73,17 +73,13 @@ class Database:
         self.cursor.execute(CreateTablesQuery.query_create_user_search)
         self.cursor.execute(CreateTablesQuery.query_create_premium_listing)
 
-    def save_data(self, query: Union[str, list], data: Union[tuple, list]) -> None:
+    def save_data(self, query: str, data: tuple) -> None:
         """
         This saves data in the database
-        Parameters = query that can we either string or list, tuple
+        Parameters = query of type string, data are query parameters in tuple
         Return Type = None
         """
-        if isinstance(query, str):
-            self.cursor.execute(query, data)
-        else:
-            for i in range(0, len(query)):
-                self.cursor.execute(query[i], data[i])
+        self.cursor.execute(query, data)
         self.connection.commit()
 
     def fetch_data(self, query: str, tup: tuple = None) -> list:

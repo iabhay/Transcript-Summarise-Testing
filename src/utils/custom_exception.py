@@ -1,8 +1,23 @@
+"""Module to define Custom Exception and it's types"""
+
+
 class CustomBaseException(Exception):
-    def __init__(self, error_code, error, message):
+    """
+    Class to define custom exception which has parent class Exception
+    ...
+    Methods:
+    -------
+    constructor() -> setting message, error code
+    """
+
+    def __init__(self, error_code: int, message: str) -> None:
+        """
+        Method to set message in Exception class and error code and message
+        Parameter -> error_code: int, message: str
+        Return Type -> None
+        """
         super().__init__(message)
         self.error_code = error_code
-        self.error = error
         self.message = message
 
 

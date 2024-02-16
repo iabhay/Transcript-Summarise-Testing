@@ -1,9 +1,0 @@
-flask-jwt-extended
-flask-smorest
-flask-sqlalchemy
-passlib
-marshmallow
-python-dotenv
-gunicorn
-requests
-pyyaml

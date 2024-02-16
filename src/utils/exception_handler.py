@@ -1,3 +1,5 @@
+"""Module containing decorators for handling exceptions, errors"""
+
 import logging
 from config.log_config.log_config import LogStatements
 from functools import wraps
@@ -21,7 +23,6 @@ def handle_exceptions(default_response="Enter Carefully."):
                     logger.debug(default_response)
                 except TypeError as e:
                     print("Type Error.")
-                    # print(f"Exception occurred: {e}")
                     logger.debug(default_response)
                 except Exception as e:
                     # Handle the exception and provide the default response

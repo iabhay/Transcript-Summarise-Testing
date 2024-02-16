@@ -1,6 +1,6 @@
 import yaml
 
-FPATH = r"src/config/config.yml"
+FPATH = r'config/config.yml'
 
 
 class Config:

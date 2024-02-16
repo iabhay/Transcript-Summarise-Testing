@@ -1,5 +1,5 @@
 class CreateTablesQuery:
-    query_create_user = 'CREATE TABLE IF NOT EXISTS USERS (uid VARCHAR(10) PRIMARY KEY, created_at VARCHAR(0), username VARCHAR(50) UNIQUE, password VARCHAR(150), role VARCHAR(30) DEFAULT "nonpremiumuser", ban_status VARCHAR(40) DEFAULT "unbanned")'
+    query_create_user = 'CREATE TABLE IF NOT EXISTS USERS (uid VARCHAR(10) PRIMARY KEY, created_at VARCHAR(30), username VARCHAR(50) UNIQUE, password VARCHAR(150), role VARCHAR(30) DEFAULT "nonpremiumuser", ban_status VARCHAR(40) DEFAULT "unbanned")'
     query_create_user_search = "CREATE TABLE IF NOT EXISTS SEARCHES (sid VARCHAR(10) PRIMARY KEY, date_time VARCHAR(30), uid VARCHAR(10) , search_count INTEGER DEFAULT 0, FOREIGN KEY(uid) REFERENCES USERS(uid) ON DELETE CASCADE)"
     query_create_message = "CREATE TABLE IF NOT EXISTS MESSAGES (mid VARCHAR(10) PRIMARY KEY, date_time VARCHAR(30), uid VARCHAR(10), description VARCHAR(256), FOREIGN KEY(uid) REFERENCES USERS(uid) ON DELETE CASCADE)"
     query_create_history = "CREATE TABLE IF NOT EXISTS HISTORY (hid VARCHAR(10) PRIMARY KEY, date_time VARCHAR(30), uid VARCHAR(10), url_id VARCHAR(70), FOREIGN KEY(uid) REFERENCES USERS(uid) ON DELETE CASCADE)"

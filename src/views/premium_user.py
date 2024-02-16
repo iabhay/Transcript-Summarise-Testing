@@ -1,3 +1,5 @@
+"""Module for views of Premium User."""
+
 import logging
 from config.config import Config
 from utils.dicts import PremiumMap
@@ -8,13 +10,29 @@ logger = logging.getLogger(__name__)
 
 
 class PremiumUser:
+    """
+    Class for showing views of Premium User functionalities.
+    ...
+    Methods:
+    -------
+    Constructor() -> Initialisation of object of Premium Map which contains mapping of functionalities of premium user
+    """
+
     def __init__(self, uid):
-        self.uid = uid
+        """
+        Constructor method to create object of Premium Map and object of Video Service
+        Parameter -> uid: str
+        Return Type -> None
+        """
         self.premium_map = PremiumMap(uid)
         self.premium_menu = self.premium_map.premium_menu()
         self.video_obj = VideoService(uid)
 
     def premium_module(self):
+        """
+        Method to show views of functionalities of premium user
+        Parameter -> self
+        """
         print(Config.PREMIUM_USER_INTRO)
         while True:
             try:

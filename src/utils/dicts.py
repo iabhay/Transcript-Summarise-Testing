@@ -18,7 +18,6 @@ class NonPremiumMap:
 class PremiumMap:
     def __init__(self, uid):
         self.user_helper = UsersHelper(uid)
-        self.premium_controller = PremiumUserController(uid)
         self.video_service = VideoView(uid)
 
     def premium_menu(self):
@@ -36,7 +35,6 @@ class PremiumMap:
 class AdminMap:
     def __init__(self, uid):
         self.uid = uid
-        self.adm = AdminLogic(self.uid)
 
     def admin_menu(self):
         admin_dict = {

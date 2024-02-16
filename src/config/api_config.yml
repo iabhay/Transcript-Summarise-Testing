@@ -1,0 +1,26 @@
+USER_NOT_EXIST: User not exists
+SERVER_NOT_WORKING: Server not responding.
+LOGIN_SUCCESS: Logged in Successfully.
+UID_CONSTRAINTS: "123456789"
+USER_ALREADY_EXIST: User already exists.
+BANNED_URL: Already Banned URL.
+CONTENT_NOT_FETCHED: Content not fetched from internal service.
+DATA_NOT_EXIST: Data doesn't exist.
+USER_IS_NONPREMIUM: User is not Premium User.
+USER_IS_PREMIUM: User is Premium User. 
+USER_PROFILE_UNAVAILABLE: User Profile not available.
+ALREADY_NONPREMIUML: Already Non Premium User.
+ALREADYPREMIUM: Already Premium User.
+USER_REGISTER_SUCCESS: User registered successfully.
+BAD_CONTENT_FOUND: Bad Content Found.
+ACCESS_RESTRICTED: Access Restricted.
+SENT_TO_ADMIN: Your request for unban successfully sent to admin.
+URL_PREMIUMLISTED: URL Premiumlisted for user.
+URL_BANNED: url banned successfully.
+URL_UNBANNED: url unbanned successfully.
+USER_BANNED: user banned successfully.
+USER_UNBANNED: user unbanned successfully.
+USER_UPGRADED: User Upgraded.
+USER_DOWNGRADED: User Upgraded.
+ADMIN_ROLE_UNCHANGEABLE: Admin Role can't be changed.
+PERMISSION_NOT_GRANTED: Permission not granted!
