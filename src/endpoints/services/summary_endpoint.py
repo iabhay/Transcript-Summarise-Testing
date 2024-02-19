@@ -20,7 +20,7 @@ blp = Blueprint("summary", __name__, description="summary")
 class SummaryEndpoint(MethodView):
     
 
-    @role_required(["nonpremium", "premium", "admin"])
+    @role_required(["nonpremiumuser", "premiumuser", "admin"])
     @jwt_required()
     @blp.arguments(UrlInputSchema)
     def get(self, youtube_url):
