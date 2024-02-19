@@ -1,17 +1,17 @@
 """Module for definingMessage Route"""
 
+"""
+Message Resource Endpoints
+1. /messages[GET] for fetching all messages received from all users based on filter if any. Admin can access.
+2. /message [POST] for sending any message to admin. Can be used by premium only.
+"""
+
 from flask.views import MethodView
 from flask_smorest import Blueprint
 from flask_jwt_extended import jwt_required
 from utils.utils_api.role_api import role_required
 from utils.utils_api.schemas import UserMessageSchema
 from controllers.users_controllers.message_controller import MessageController
-
-"""
-Message Resource Endpoints
-1. /messages[GET] for fetching all messages received from all users based on filter if any. Admin can access.
-2. /message [POST] for sending any message to admin. Can be used by premium only.
-"""
 
 blp = Blueprint("message", __name__, description="message")
 

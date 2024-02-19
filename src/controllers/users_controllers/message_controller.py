@@ -48,10 +48,10 @@ class MessageController:
                 response = self.message_logic.view_user_message(self.user_id)
                 return response
             if self.user_type:
-                if self.user_type == "premium":
+                if self.user_type == "premiumuser":
                     response = self.message_logic.view_premium_message(self.user_id)
                     return response
-                elif self.user_type == "nonpremium":
+                elif self.user_type == "nonpremiumuser":
                     response = self.message_logic.view_nonpremium_message(self.user_id)
                     return response
             if self.args is None:
