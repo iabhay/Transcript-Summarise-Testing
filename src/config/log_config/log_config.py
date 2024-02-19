@@ -1,6 +1,7 @@
+import os
 import yaml
-
-FPATH = "config/log_config/log_statements.yml"
+current_directory = os.path.dirname(__file__)
+FPATH = os.path.join(current_directory, 'log_statements.yml')
 
 
 class LogStatements:

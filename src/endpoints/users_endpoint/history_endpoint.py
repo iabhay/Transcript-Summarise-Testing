@@ -35,7 +35,7 @@ class ViewAllHistory(MethodView):
         Return Type -> Json
         """
         self.history_controller = HistoryController()
-        response = self.admin_controller.view_all_history()
+        response = self.history_controller.view_all_history()
         return response
 
 

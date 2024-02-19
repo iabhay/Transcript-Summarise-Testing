@@ -1,5 +1,5 @@
 import pytest
-from src.main import YTTS
+from app import YTTS
 
 @pytest.fixture(autouse=True)
 def mock_main(mocker):

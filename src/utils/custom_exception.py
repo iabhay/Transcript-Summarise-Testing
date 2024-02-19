@@ -52,6 +52,9 @@ class BannedUrl(CustomBaseException):
 class ContentNotGenerated(CustomBaseException):
     pass
 
+class AppException(CustomBaseException):
+    pass
+
 
 class BadContent(CustomBaseException):
     pass

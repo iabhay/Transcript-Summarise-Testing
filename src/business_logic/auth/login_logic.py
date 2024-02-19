@@ -8,19 +8,17 @@ Login logic ->
 6. In access_token -> role, username, uid, ban_status are also sent as additional claims.
 7. Error can be of Resource Not Found.
 """
-
+from flask import current_app as app
+from flask_jwt_extended import get_jwt
 import hashlib
-import logging
 from mysql.connector import Error
-from flask_jwt_extended import create_access_token
 from utils.custom_exception import InvalidLogin
 from database.database_query import UsersTableQuery
 from utils.custom_exception import DBException
 from database.mysql_database import db
 from config.api_config import ApiConfig
-
-
-logger = logging.getLogger(__name__)
+from business_logic.token_logic.access_token_logic import AccessToken
+from business_logic.token_logic.refresh_token_logic import RefreshToken
 
 
 class LoginLogic:
@@ -51,7 +49,7 @@ class LoginLogic:
                 return response
 
         except Error as e:
-            logger.error(f"Error in SQL {e}")
+            app.logger.error(f"Error in SQL {e}")
             raise DBException(500, ApiConfig.SERVER_NOT_WORKING)
 
     def response_generator(self, entry: list):
@@ -63,21 +61,34 @@ class LoginLogic:
         response = {
             "message": ApiConfig.LOGIN_SUCCESS,
         }
-        response["token"] = self.token_generator(entry)
+        token_gen = AccessToken()
+        tokens = token_gen.create_token(True, entry[0]["uid"], {"role": entry[0]["role"], "ban_status": entry[0]["ban_status"]})
+        response["access_token"] = tokens[0]
+        response["refresh_token"] = tokens[1]
         return response
-
-    def token_generator(self, entry: list):
+    
+    def logout(self) -> tuple:
+        """Method responsible for calling business logic for logging out the system for user..
+           Parameters -> None
+           Returns -> tuple
         """
-        Method which generate token
-        Parameter -> entry: list
-        Return Type -> str
+        token_claims = get_jwt()
+        identity = token_claims["sub"]
+        auth_token_business = AccessToken()
+        auth_token_business.revoke_token(identity)
+        app.logger.info("User Logged Out!")
+        return {"message": ApiConfig.LOGOUT_SUCCESS}, 200
+    
+    def refresh_user(self, refresh_jti: str, identity: str, role: str, ban_status: str) -> tuple:
+        """Method responsible for calling business logic for creating new access and refresh token.
+           Parameters -> refresh_jti: str, username: str, role: str, p_type: str
+           Returns -> tuple
         """
-        access_token = create_access_token(
-            identity=entry[0]["uid"],
-            additional_claims={
-                "role": entry[0]["role"],
-                "username": entry[0]["username"],
-                "ban_status": entry[0]["ban_status"],
-            },
-        )
-        return access_token
+        token = AccessToken()
+        refresh_token_business = RefreshToken()
+        data = refresh_token_business.generate_new_token(refresh_jti, identity, role, ban_status)
+        access_token = data[0]["access_token"]
+        refresh_token = data[0]["refresh_token"]
+        return {"message": "New tokens generated successfully.",
+                "access_token": access_token,
+                "refresh_token":refresh_token}, 200

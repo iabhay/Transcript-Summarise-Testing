@@ -6,7 +6,7 @@ Error handled by custom error decorator.
 
 from business_logic.auth.login_logic import LoginLogic
 from utils.exception_handler import custom_error_handler
-
+from flask_jwt_extended import get_jwt, get_jwt_identity
 
 class LoginController:
     """
@@ -31,4 +31,19 @@ class LoginController:
         response = self.login_logic.login(
             username=user_data["username"], password=user_data["password"]
         )
+        return response
+    
+    @custom_error_handler
+    def refresh_user(self):
+        claims = get_jwt()
+        identity = get_jwt_identity()
+        refresh_jti = claims["jti"]
+        role = claims["role"]
+        ban_status = claims["ban_status"]
+        response = self.login_logic.refresh_user(refresh_jti, identity, role, ban_status)
+        return response
+
+    @custom_error_handler
+    def logout_user(self):
+        response = self.login_logic.logout()
         return response

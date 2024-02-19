@@ -24,3 +24,7 @@ USER_UPGRADED: User Upgraded.
 USER_DOWNGRADED: User Upgraded.
 ADMIN_ROLE_UNCHANGEABLE: Admin Role can't be changed.
 PERMISSION_NOT_GRANTED: Permission not granted!
+TOKEN_ISSUED: issued
+TOKEN_REVOKED: revoked
+LOG_FILE_PATH: "logs.log"
+LOGOUT_SUCCESS: User logged out successfully.

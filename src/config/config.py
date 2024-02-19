@@ -1,6 +1,7 @@
+import os
 import yaml
-
-FPATH = r'config/config.yml'
+current_directory = os.path.dirname(__file__)
+FPATH = os.path.join(current_directory, 'config.yml')
 
 
 class Config:

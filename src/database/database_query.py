@@ -1,11 +1,18 @@
 class CreateTablesQuery:
-    query_create_user = 'CREATE TABLE IF NOT EXISTS USERS (uid VARCHAR(10) PRIMARY KEY, created_at VARCHAR(30), username VARCHAR(50) UNIQUE, password VARCHAR(150), role VARCHAR(30) DEFAULT "nonpremiumuser", ban_status VARCHAR(40) DEFAULT "unbanned")'
+    query_create_user = "CREATE TABLE IF NOT EXISTS USERS (uid VARCHAR(10) PRIMARY KEY, created_at VARCHAR(30), username VARCHAR(50) UNIQUE, password VARCHAR(150), role VARCHAR(30) DEFAULT 'nonpremiumuser', ban_status VARCHAR(40) DEFAULT 'unbanned')"
     query_create_user_search = "CREATE TABLE IF NOT EXISTS SEARCHES (sid VARCHAR(10) PRIMARY KEY, date_time VARCHAR(30), uid VARCHAR(10) , search_count INTEGER DEFAULT 0, FOREIGN KEY(uid) REFERENCES USERS(uid) ON DELETE CASCADE)"
     query_create_message = "CREATE TABLE IF NOT EXISTS MESSAGES (mid VARCHAR(10) PRIMARY KEY, date_time VARCHAR(30), uid VARCHAR(10), description VARCHAR(256), FOREIGN KEY(uid) REFERENCES USERS(uid) ON DELETE CASCADE)"
     query_create_history = "CREATE TABLE IF NOT EXISTS HISTORY (hid VARCHAR(10) PRIMARY KEY, date_time VARCHAR(30), uid VARCHAR(10), url_id VARCHAR(70), FOREIGN KEY(uid) REFERENCES USERS(uid) ON DELETE CASCADE)"
     query_create_premium_listing = "CREATE TABLE IF NOT EXISTS PREMIUMLISTINGS (pid VARCHAR(10) PRIMARY KEY, date_time VARCHAR(30), uid VARCHAR(10), url_id VARCHAR(70), FOREIGN KEY(uid) REFERENCES USERS(uid) ON DELETE CASCADE)"
     query_create_ban_url = "CREATE TABLE IF NOT EXISTS BANNEDURL (bid VARCHAR(10) PRIMARY KEY, url_id VARCHAR(70) UNIQUE, category VARCHAR(40), severity_level INTEGER)"
+    query_create_blocklist = "CREATE TABLE IF NOT EXISTS BLOCKLIST (access_token VARCHAR(600) PRIMARY KEY, refresh_token VARCHAR(600) NOT NULL, uid VARCHAR(15), status VARCHAR(20) DEFAULT 'issued', FOREIGN KEY(uid) REFERENCES USERS(uid) ON DELETE CASCADE)"
 
+class BlocklistQuery:
+    INSERT_TOKEN = "INSERT INTO BLOCKLIST(uid, access_token, refresh_token) VALUES(%s, %s, %s)"
+    REVOKE_TOKEN = "UPDATE BLOCKLIST SET status = 'revoked' WHERE uid = %s"
+    FETCH_TOKEN_STATUS = "SELECT status FROM BLOCKLIST WHERE {} = %s"
+    FETCH_REFRESH_TOKEN = "SELECT refresh_token FROM BLOCKLIST WHERE uid = %s and status = %s"
+    FETCH_ACCESS_TOKEN = "SELECT access_token FROM BLOCKLIST WHERE uid = %s and status = %s"
 
 class UsersTableQuery:
     query_insert_user = "INSERT INTO USERS (uid, created_at, username, password) VALUES (%s, %s, %s, %s)"

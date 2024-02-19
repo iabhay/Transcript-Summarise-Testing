@@ -1,6 +1,7 @@
 """This Module provides all methods related for database operations"""
 import os
-import mysql.connector
+import pymysql
+# import mysql.connector
 import logging
 
 from pathlib import Path
@@ -14,10 +15,11 @@ load_dotenv(dotenv_path=dotenv_path)
 
 logger = logging.getLogger(__name__)
 
-MYSQL_USER = os.getenv("MYSQL_USER")
-MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
-MYSQL_HOST = os.getenv("MYSQL_HOST")
-MYSQL_DB = os.getenv("MYSQL_DB")
+MYSQL_PASSWORD = os.getenv('DB_PASSWORD')
+MYSQL_HOST = os.getenv('DB_HOST')
+# MYSQL_DB = os.getenv('DB_DB')
+MYSQL_PORT = os.getenv('DB_PORT')
+MYSQL_USERNAME = os.getenv('DB_USER')
 
 
 class Database:
@@ -43,22 +45,32 @@ class Database:
         """
         if Database.connection is None:
             try:
-                Database.connection = mysql.connector.connect(
-                    user=MYSQL_USER, password=MYSQL_PASSWORD, host=MYSQL_HOST
+                timeout = 10
+                Database.connection = pymysql.connect(
+                charset="utf8mb4",
+                connect_timeout=timeout,
+                cursorclass=pymysql.cursors.DictCursor,
+                db="ytts",
+                host=MYSQL_HOST,
+                password=MYSQL_PASSWORD,
+                read_timeout=timeout,
+                port=int(MYSQL_PORT),
+                user=MYSQL_USERNAME,
+                write_timeout=timeout,
                 )
-                CREATE_DATABASE = "CREATE DATABASE IF NOT EXISTS {}"
-                USE_DATABASE = "USE {}"
-                Database.cursor = Database.connection.cursor(dictionary=True)
-                Database.cursor.execute(CREATE_DATABASE.format(MYSQL_DB))
-                Database.cursor.execute(USE_DATABASE.format(MYSQL_DB))
+                Database.connection.autocommit(True)
+                # CREATE_DATABASE = "CREATE DATABASE IF NOT EXISTS {}"
+                # USE_DATABASE = "USE {}"
+                # ROLLBACK_QUERY = 'ROLLBACK'
+                Database.cursor = Database.connection.cursor()
+                # Database.cursor.execute(CREATE_DATABASE.format(MYSQL_DB))
+                # Database.cursor.execute(USE_DATABASE.format(MYSQL_DB))
             except Exception as error:
                 logger.exception(error)
-                raise mysql.connector.Error from error
-            else:
-                logger.debug("Connection established")
+            # else:
+            #     logger.debug("Connection established")
 
-        self.connection = Database.connection
-        self.cursor = Database.cursor
+        # self.connection = Database.connection
 
     def create_all_table(self) -> None:
         """
@@ -72,6 +84,7 @@ class Database:
         self.cursor.execute(CreateTablesQuery.query_create_ban_url)
         self.cursor.execute(CreateTablesQuery.query_create_user_search)
         self.cursor.execute(CreateTablesQuery.query_create_premium_listing)
+        self.cursor.execute(CreateTablesQuery.query_create_blocklist)
 
     def save_data(self, query: str, data: tuple) -> None:
         """

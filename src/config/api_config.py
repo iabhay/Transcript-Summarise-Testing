@@ -1,6 +1,7 @@
+import os
 import yaml
-
-FPATH = r'config/api_config.yml'
+current_directory = os.path.dirname(__file__)
+FPATH = os.path.join(current_directory, 'api_config.yml')
 
 
 class ApiConfig:
@@ -35,6 +36,10 @@ class ApiConfig:
     USER_BANNED = None
     USER_UNBANNED = None
     PERMISSION_NOT_GRANTED = None
+    TOKEN_ISSUED = None
+    TOKEN_REVOKED = None
+    LOG_FILE_PATH = None
+    LOGOUT_SUCCESS = None
 
     @classmethod
     def load(cls):
@@ -66,3 +71,7 @@ class ApiConfig:
             cls.USER_BANNED = data['USER_BANNED']
             cls.USER_UNBANNED = data['USER_UNBANNED']
             cls.PERMISSION_NOT_GRANTED = data['PERMISSION_NOT_GRANTED']
+            cls.TOKEN_ISSUED = data['TOKEN_ISSUED']
+            cls.TOKEN_REVOKED = data['TOKEN_REVOKED']
+            cls.LOG_FILE_PATH = data['LOG_FILE_PATH']
+            cls.LOGOUT_SUCCESS = data['LOGOUT_SUCCESS']
