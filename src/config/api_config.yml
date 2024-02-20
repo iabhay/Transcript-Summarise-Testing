@@ -21,7 +21,7 @@ URL_UNBANNED: url unbanned successfully.
 USER_BANNED: user banned successfully.
 USER_UNBANNED: user unbanned successfully.
 USER_UPGRADED: User Upgraded.
-USER_DOWNGRADED: User Upgraded.
+USER_DOWNGRADED: User downgraded.
 ADMIN_ROLE_UNCHANGEABLE: Admin Role can't be changed.
 PERMISSION_NOT_GRANTED: Permission not granted!
 TOKEN_ISSUED: issued
