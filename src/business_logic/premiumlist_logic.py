@@ -48,7 +48,7 @@ class PremiumlistLogic:
             if not if_user_exist:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
 
-            elif if_user_exist[0]["role"] != "premium":
+            elif if_user_exist[0]["role"] != "premiumuser":
                 raise NotPremiumUser(422, ApiConfig.USER_IS_NONPREMIUM)
 
             pid = "P" + ShortUUID("123456789").random(length=4)
