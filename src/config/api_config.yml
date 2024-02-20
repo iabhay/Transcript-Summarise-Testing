@@ -14,7 +14,7 @@ ALREADYPREMIUM: Already Premium User.
 USER_REGISTER_SUCCESS: User registered successfully.
 BAD_CONTENT_FOUND: Bad Content Found.
 ACCESS_RESTRICTED: Access Restricted.
-SENT_TO_ADMIN: Your request for unban successfully sent to admin.
+SENT_TO_ADMIN: Your message successfully sent to admin.
 URL_PREMIUMLISTED: URL Premiumlisted for user.
 URL_BANNED: url banned successfully.
 URL_UNBANNED: url unbanned successfully.
