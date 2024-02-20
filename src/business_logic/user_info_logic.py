@@ -40,7 +40,7 @@ class UserInfoLogic:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             else:
                 table = db.fetch_data(AdminQueries.query_view_user, (target_uid,))
-                return table
+                return table[0]
         except Error as e:
             logger.error(f"Error in SQL {e}")
             raise DBException(500, ApiConfig.SERVER_NOT_WORKING)

@@ -21,9 +21,7 @@ class UsersTableQuery:
     query_select_all_user = "SELECT * FROM USERS"
     query_update_user_role = "UPDATE USERS SET role=%s where uid=%s"
     query_update_user_ban_status = "UPDATE USERS SET ban_status=%s where uid=%s"
-    query_select_user_by_uid = (
-        "SELECT username, role, ban_status from USERS WHERE uid=%s"
-    )
+    query_select_user_by_uid = "SELECT username, role, ban_status from USERS WHERE uid=%s"
 
 
 class UserSearchesTableQuery:
