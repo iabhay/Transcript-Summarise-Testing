@@ -46,7 +46,7 @@ class PremiumlistLogic:
                 UsersTableQuery.query_select_user_by_uid, (uid,)
             )
             # username, role, ban
-            if len(if_user_exist) == 0:
+            if not if_user_exist:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
 
             elif if_user_exist[0]["role"] != "premium":
@@ -73,7 +73,7 @@ class PremiumlistLogic:
             response = db.fetch_data(
                 PremiumListingTable.query_select_all_premium_listing
             )
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response
         except Error as e:
@@ -91,7 +91,7 @@ class PremiumlistLogic:
             response = db.fetch_data(
                 PremiumListingTable.query_select_premium_listing, (uid,)
             )
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response
         except Error as e:

@@ -41,7 +41,7 @@ class UrlLogic:
     def view_all_ban_url(self):
         try:
             response = db.fetch_data(BannedUrlTable.query_select_all_ban_url)
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response
         except Error as e:
@@ -51,7 +51,7 @@ class UrlLogic:
     def view_ban_url(self, urlid):
         try:
             response = db.fetch_data(BannedUrlTable.query_select_ban_url, (urlid,))
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response
         except Error as e:

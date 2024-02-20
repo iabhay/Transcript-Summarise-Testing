@@ -37,7 +37,7 @@ class HistoryLogic:
         """
         try:
             response = db.fetch_data(HistoryTableQuery.query_select_all_history)
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response
 
@@ -54,7 +54,7 @@ class HistoryLogic:
         """
         try:
             response = db.fetch_data(HistoryTableQuery.query_select_history, (uid,))
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response
         except Error as e:

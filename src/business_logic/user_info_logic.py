@@ -36,7 +36,7 @@ class UserInfoLogic:
             target = db.fetch_data(
                 UsersTableQuery.query_select_user_by_uid, (target_uid,)
             )
-            if len(target) == 0:
+            if not target:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             else:
                 table = db.fetch_data(AdminQueries.query_view_user, (target_uid,))
@@ -51,7 +51,7 @@ class UserInfoLogic:
                 UsersTableQuery.query_select_user_by_uid, (target_uid,)
             )
 
-            if len(target) == 0:
+            if not target:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             if target[0]["role"] == "nonpremiumuser":
                 db.save_data(
@@ -92,7 +92,7 @@ class UserInfoLogic:
     def ban_user(self, uid):
         try:
             target = db.fetch_data(UsersTableQuery.query_select_user_by_uid, (uid,))
-            if len(target) == 0:
+            if not target:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             db.save_data(
                 UsersTableQuery.query_update_user_ban_status, ("banned", self.uid)
@@ -104,7 +104,7 @@ class UserInfoLogic:
     def unban_user(self, uid):
         try:
             target = db.fetch_data(UsersTableQuery.query_select_user_by_uid, (uid,))
-            if len(target) == 0:
+            if not target:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             db.save_data(
                 UsersTableQuery.query_update_user_ban_status, ("unbanned", self.uid)

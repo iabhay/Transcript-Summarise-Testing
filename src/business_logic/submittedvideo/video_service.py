@@ -85,8 +85,8 @@ class VideoService:
             but premium_listing then gnerate summary
             """
 
-            if len(is_banned_url) > 0:
-                if len(premium_listing) == 0:
+            if is_banned_url:
+                if not premium_listing:
                     raise BannedUrl(403, "UnaccessibleResource", ApiConfig.BANNED_URL)
 
             # transcript generated

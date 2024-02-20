@@ -39,7 +39,7 @@ class MessageLogic:
         """
         try:
             response = db.fetch_data(MessageTableQuery.query_select_premium_message)
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_FOUND)
             return response
         except Error as e:
@@ -55,7 +55,7 @@ class MessageLogic:
         """
         try:
             response = db.fetch_data(MessageTableQuery.query_select_non_premium_message)
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_FOUND)
             return response
         except Error as e:
@@ -71,7 +71,7 @@ class MessageLogic:
         """
         try:
             response = db.fetch_data(MessageTableQuery.query_select_all_messages)
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_FOUND)
             return response
         except Error as e:
@@ -87,10 +87,10 @@ class MessageLogic:
         """
         try:
             target = db.fetch_data(UsersTableQuery.query_select_user_by_uid, (uid,))
-            if len(target) == 0:
+            if not target:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             response = db.fetch_data(MessageTableQuery.query_select_all_messages)
-            if len(response) == 0:
+            if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_FOUND)
             return response
         except Error as e:
