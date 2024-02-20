@@ -34,14 +34,14 @@ class PremiumlistController:
         self.premium_list_logic = PremiumlistLogic()
 
     @custom_error_handler
-    def premium_list(self, url_req, user_id):
+    def premium_list(self, url_req):
         """
         Method to add url to premiumlisting for that user
         Parameter -> user_req: dict
         Return Type -> dict
         """
         self.premium_list_logic.premium_list(
-            url_req["username"], url_req["youtube_url"]
+            url_req["user_id"], url_req["youtube_url"]
         )
         return jsonify({"message": ApiConfig.URL_PREMIUMLISTED})
 

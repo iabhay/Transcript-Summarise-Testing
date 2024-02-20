@@ -45,7 +45,7 @@ class PremiumListSchema(Schema):
     youtube_url = fields.Str(
         required=True, validate=validate.Regexp(Patterns.YOUTUBE_PATTERN)
     )
-    username = fields.Str(
+    user_id = fields.Str(
         required=True, validate=validate.Regexp(Patterns.USERNAME_PATTERN)
     )
 

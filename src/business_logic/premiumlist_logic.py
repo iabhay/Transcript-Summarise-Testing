@@ -33,7 +33,7 @@ class PremiumlistLogic:
         tm = datetime.now()
         self.dt_string = tm.strftime("%d/%m/%Y %H:%M:%S")
 
-    def premium_list(self, username: str, url_id: str):
+    def premium_list(self, uid: str, url_id: str):
         """
         Method for premiumlisting of url for any user
         Parameter -> username: str, url_id: str
@@ -41,7 +41,6 @@ class PremiumlistLogic:
         Exception Type -> SQLError, UserNotFound, NotPremiumUser
         """
         try:
-            uid = self.uid_generator(username)
             if_user_exist = db.fetch_data(
                 UsersTableQuery.query_select_user_by_uid, (uid,)
             )
