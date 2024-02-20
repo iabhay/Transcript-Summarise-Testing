@@ -25,6 +25,8 @@ class UrlLogic:
             db.save_data(
                 BannedUrlTable.query_insert_ban_url, (bid, url_id, category, severity)
             )
+        except pymysql.IntegrityError:
+            return None
         except pymysql.Error as e:
             logger.error(f"Error in SQL {e}")
             raise DBException(500, ApiConfig.SERVER_NOT_WORKING)
