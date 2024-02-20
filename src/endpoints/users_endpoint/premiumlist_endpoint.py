@@ -39,7 +39,7 @@ class PremiumList(MethodView):
         Return Type -> Json
         """
         identity = get_jwt_identity()
-        self.admin_controller = PremiumlistController(identity)
+        self.admin_controller = PremiumlistController()
         response = self.admin_controller.premium_list(url_req)
         return response
 

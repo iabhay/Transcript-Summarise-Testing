@@ -34,7 +34,7 @@ class PremiumlistController:
         self.premium_list_logic = PremiumlistLogic()
 
     @custom_error_handler
-    def premium_list(self, url_req):
+    def premium_list(self, url_req, user_id):
         """
         Method to add url to premiumlisting for that user
         Parameter -> user_req: dict
