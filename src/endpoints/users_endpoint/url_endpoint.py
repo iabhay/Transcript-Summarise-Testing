@@ -39,7 +39,7 @@ class BanUrl(MethodView):
         Parameter -> url_input: UrlInputSchema
         Return Type -> Json
         """
-        self.url_controller = UrlController(url_input)
+        self.url_controller = UrlController()
         response = self.url_controller.ban_url(url_input)
         return response
 

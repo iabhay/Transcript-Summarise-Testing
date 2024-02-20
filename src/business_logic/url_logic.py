@@ -19,7 +19,6 @@ class UrlLogic:
 
     def ban_url(self, url_id):
         try:
-            url_id = extract_video_id(url_id)
             category = "banned_by_admin"
             severity = 10
             bid = "B" + ShortUUID(ApiConfig.UID_CONSTRAINTS).random(length=4)
