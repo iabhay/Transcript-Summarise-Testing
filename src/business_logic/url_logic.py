@@ -32,7 +32,6 @@ class UrlLogic:
 
     def unban_url(self, url_id):
         try:
-            url_id = extract_video_id(url_id)
             db.delete_data(BannedUrlTable.query_unban_url, (url_id,))
         except pymysql.Error as e:
             logger.error(f"Error in SQL {e}")
