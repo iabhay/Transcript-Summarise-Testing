@@ -95,7 +95,7 @@ class UserInfoLogic:
             if not target:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             db.save_data(
-                UsersTableQuery.query_update_user_ban_status, ("banned", self.uid)
+                UsersTableQuery.query_update_user_ban_status, ("banned", uid)
             )
         except Error as e:
             logger.error(f"Error in SQL {e}")
@@ -107,7 +107,7 @@ class UserInfoLogic:
             if not target:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             db.save_data(
-                UsersTableQuery.query_update_user_ban_status, ("unbanned", self.uid)
+                UsersTableQuery.query_update_user_ban_status, ("unbanned", uid)
             )
         except Error as e:
             logger.error(f"Error in SQL {e}")
