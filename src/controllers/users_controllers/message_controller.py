@@ -28,8 +28,7 @@ class MessageController:
     """
 
     def __init__(self):
-        self.args = request.args()
-        self.user_id = self.args.get("user_id")
+        self.user_id = request.args.get("user_id")
         self.user_type = request.args.get("user_type")
         self.identity = get_jwt_identity()
         self.claims = get_jwt()

@@ -28,8 +28,7 @@ class PremiumlistController:
     """
 
     def __init__(self):
-        self.args = request.args()
-        self.user_id = self.args.get("user_id")
+        self.user_id = request.args.get("user_id")
         self.identity = get_jwt_identity()
         self.claims = get_jwt()
         self.premium_list_logic = PremiumlistLogic()

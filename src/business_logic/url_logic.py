@@ -1,5 +1,5 @@
 import logging
-from mysql.connector import Error
+import pymysql
 from shortuuid import ShortUUID
 from datetime import datetime
 from utils.utils_api.utility_functions import extract_video_id
@@ -26,7 +26,7 @@ class UrlLogic:
             db.save_data(
                 BannedUrlTable.query_insert_ban_url, (bid, url_id, category, severity)
             )
-        except Error as e:
+        except pymysql.Error as e:
             logger.error(f"Error in SQL {e}")
             raise DBException(500, ApiConfig.SERVER_NOT_WORKING)
 
@@ -34,17 +34,18 @@ class UrlLogic:
         try:
             url_id = extract_video_id(url_id)
             db.delete_data(BannedUrlTable.query_unban_url, (url_id,))
-        except Error as e:
+        except pymysql.Error as e:
             logger.error(f"Error in SQL {e}")
             raise DBException(500, ApiConfig.SERVER_NOT_WORKING)
 
     def view_all_ban_url(self):
         try:
             response = db.fetch_data(BannedUrlTable.query_select_all_ban_url)
+            print(response)
             if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response
-        except Error as e:
+        except pymysql.Error as e:
             logger.error(f"Error in SQL {e}")
             raise DBException(500, ApiConfig.SERVER_NOT_WORKING)
 
@@ -54,6 +55,6 @@ class UrlLogic:
             if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response
-        except Error as e:
+        except pymysql.Error as e:
             logger.error(f"Error in SQL {e}")
             raise DBException(500, ApiConfig.SERVER_NOT_WORKING)

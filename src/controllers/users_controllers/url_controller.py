@@ -31,8 +31,7 @@ class UrlController:
     """
 
     def __init__(self):
-        self.args = request.args()
-        self.ban_url_id = self.args.get("ban_url_id")
+        self.ban_url_id = request.args.get("ban_url_id")
         self.identity = get_jwt_identity()
         self.claims = get_jwt()
         self.url_logic = UrlLogic()
