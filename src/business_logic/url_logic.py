@@ -33,7 +33,7 @@ class UrlLogic:
 
     def unban_url(self, url_id):
         try:
-            db.delete_data(BannedUrlTable.query_unban_url, (url_id,))
+            db.save_data(BannedUrlTable.query_unban_url, (url_id,))
         except pymysql.Error as e:
             logger.error(f"Error in SQL {e}")
             raise DBException(500, ApiConfig.SERVER_NOT_WORKING)
@@ -41,7 +41,6 @@ class UrlLogic:
     def view_all_ban_url(self):
         try:
             response = db.fetch_data(BannedUrlTable.query_select_all_ban_url)
-            print(response)
             if not response:
                 raise DataNotFound(404, ApiConfig.DATA_NOT_EXIST)
             return response

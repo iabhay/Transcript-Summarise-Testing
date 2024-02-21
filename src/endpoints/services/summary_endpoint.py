@@ -31,6 +31,6 @@ class SummaryEndpoint(MethodView):
         Return Type -> Json
         """
         identity = get_jwt_identity()
-        self.summary_controller = SummaryController(identity)
+        self.summary_controller = SummaryController()
         response = self.summary_controller.submit_video(youtube_url)
         return response
