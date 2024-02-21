@@ -135,16 +135,6 @@ class UserInfoController:
         """
         if self.user_id is None:
             return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
-        self.user_info_logic.ban_user(self.user_id)
-        claims = get_jwt()
-        identity = get_jwt_identity()
-        refresh_jti = claims["jti"]
-        role = claims["role"]
-        ban_status = "banned"
-        token_update = LoginLogic()
-        response = token_update.refresh_user(refresh_jti, identity, role, ban_status)
-        response["message"] = ApiConfig.USER_BANNED
-        return response
 
     @custom_error_handler
     def unban_user(self):
@@ -155,13 +145,3 @@ class UserInfoController:
         """
         if self.user_id is None:
             return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
-        self.user_info_logic.unban_user(self.user_id)
-        claims = get_jwt()
-        identity = get_jwt_identity()
-        refresh_jti = claims["jti"]
-        role = claims["role"]
-        ban_status = "unbanned"
-        token_update = LoginLogic()
-        response = token_update.refresh_user(refresh_jti, identity, role, ban_status)
-        response["message"] = ApiConfig.USER_UNBANNED
-        return response
