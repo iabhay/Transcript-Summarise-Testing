@@ -55,7 +55,7 @@ class UserInfoLogic:
             if not target:
                 raise UserNotFound(404, ApiConfig.USER_NOT_EXIST)
             if target[0]["role"] == "premiumuser":
-                return {"message": ApiConfig.ALREADYPREMIUM}
+                return {"message": ApiConfig.ALREADYPREMIUM}, 409
             db.save_data(
                 UsersTableQuery.query_update_user_role, ("premiumuser", target_uid)
             )
@@ -81,7 +81,7 @@ class UserInfoLogic:
             if not target:
                 raise UserNotFound(404, "User doesn't exist.")
             if target[0]["role"] == "nonpremiumuser":
-                return {"message": ApiConfig.ALREADY_NONPREMIUML}
+                return {"message": ApiConfig.ALREADY_NONPREMIUML}, 409
             
             db.save_data(
                 UsersTableQuery.query_update_user_role,
