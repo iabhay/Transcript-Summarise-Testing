@@ -69,14 +69,6 @@ class UserInfoController:
         else:
             if self.claims["role"] != "admin":
                 response = self.user_info_logic.upgrade_non_premium_user(self.identity)
-                claims = get_jwt()
-                identity = get_jwt_identity()
-                refresh_jti = claims["jti"]
-                role = "premiumuser"
-                ban_status = claims["ban_status"]
-                token_update = LoginLogic()
-                response = token_update.refresh_user(refresh_jti, identity, role, ban_status)
-                response["message"] = ApiConfig.USER_UPGRADED
                 return response
             else:
                 return {"message": ApiConfig.ADMIN_ROLE_UNCHANGEABLE}
@@ -104,14 +96,6 @@ class UserInfoController:
         else:
             if self.claims["role"] != "admin":
                 response = self.user_info_logic.downgrade_premium_user(self.identity)
-                claims = get_jwt()
-                identity = get_jwt_identity()
-                refresh_jti = claims["jti"]
-                role = "nonpremiumuser"
-                ban_status = claims["ban_status"]
-                token_update = LoginLogic()
-                response = token_update.refresh_user(refresh_jti, identity, role, ban_status)
-                response["message"] = ApiConfig.USER_DOWNGRADED
                 return response
             else:
                 return {"message": ApiConfig.ADMIN_ROLE_UNCHANGEABLE}

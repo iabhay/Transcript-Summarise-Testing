@@ -92,3 +92,18 @@ class LoginLogic:
         return {"message": "New tokens generated successfully.",
                 "access_token": access_token,
                 "refresh_token":refresh_token}, 200
+    
+    def update_token(self, access_jti: str, identity: str, role: str, ban_status: str) -> tuple:
+        """Method responsible for calling business logic for creating new access and refresh token.
+           Parameters -> refresh_jti: str, username: str, role: str, p_type: str
+           Returns -> tuple
+        """
+        token = AccessToken()
+        refresh_token_business = RefreshToken()
+        token.revoke_token(identity)
+        tokens = token.create_token(False, identity, {"role": role, "ban_status": ban_status})
+        access_token = tokens[0]
+        refresh_token = tokens[1]
+        return {"message": "New tokens generated successfully.",
+                "access_token": access_token,
+                "refresh_token":refresh_token}

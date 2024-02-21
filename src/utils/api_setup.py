@@ -143,7 +143,13 @@ def jwt_setup(app: Flask) -> None:
         """
         check_access_token = token.is_token_revoked(jwt_payload["jti"], "access_token")
         check_refresh_token = token.is_token_revoked(jwt_payload["jti"], "refresh_token")
-        return check_access_token or check_refresh_token
+        result = check_access_token or check_refresh_token
+        if not result:
+            app.logger.warning("Token given is already revoked.")
+            return False
+
+        app.logger.warning("Token not revoked.")
+        return True
 
     @jwt.revoked_token_loader
     def revoked_token_callback(jwt_header: dict, jwt_payload: dict) -> tuple:

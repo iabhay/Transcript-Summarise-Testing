@@ -64,6 +64,7 @@ def custom_error_handler(func: Callable) -> Callable:
         try:
             return func(*args, **kwargs)
         except CustomBaseException as custom_error:
+            print(custom_error)
             return ErrorResponse.jsonify_error(custom_error), custom_error.error_code
 
     return wrapper

@@ -28,12 +28,11 @@ class RefreshToken:
         try:
             data = db.fetch_data(BlocklistQuery.FETCH_REFRESH_TOKEN, (identity, ApiConfig.TOKEN_ISSUED))
             if not data:
-                raise AppException(401, "Unauthorized", "No active token. Please login again.")
+                raise AppException(401, "Unauthorized")
 
             get_token_jti = data[0]["refresh_token"]
-
             if refresh_jti != get_token_jti:
-                raise AppException(401, "Unauthorized", "Invalid token. Provide a valid token.")
+                raise AppException(401, "Unauthorized")
 
             self.token.revoke_token(identity)
             tokens = self.token.create_token(False, identity,
@@ -45,4 +44,4 @@ class RefreshToken:
                 "refresh_token": refresh_token
             }]
         except pymysql.Error:
-            raise DBException(500, "Internal Server Error", "Something wrong with the server.")
+            raise DBException(500, "Internal Server Error")
