@@ -14,7 +14,7 @@ from utils.exception_handler import custom_error_handler
 from flask_jwt_extended import get_jwt, get_jwt_identity
 from business_logic.user_info_logic import UserInfoLogic
 from config.api_config import ApiConfig
-
+from business_logic.auth.login_logic import LoginLogic
 
 class UserInfoController:
     def __init__(self) -> None:
@@ -69,9 +69,15 @@ class UserInfoController:
         else:
             if self.claims["role"] != "admin":
                 response = self.user_info_logic.upgrade_non_premium_user(self.identity)
-                return (
-                    {"message": ApiConfig.USER_UPGRADED} if not response else response
-                )
+                claims = get_jwt()
+                identity = get_jwt_identity()
+                refresh_jti = claims["jti"]
+                role = "premiumuser"
+                ban_status = claims["ban_status"]
+                token_update = LoginLogic()
+                response = token_update.refresh_user(refresh_jti, identity, role, ban_status)
+                response["message"] = ApiConfig.USER_UPGRADED
+                return response
             else:
                 return {"message": ApiConfig.ADMIN_ROLE_UNCHANGEABLE}
 
@@ -98,7 +104,15 @@ class UserInfoController:
         else:
             if self.claims["role"] != "admin":
                 response = self.user_info_logic.downgrade_premium_user(self.identity)
-                return {"message": ApiConfig.USER_DOWNGRADED}
+                claims = get_jwt()
+                identity = get_jwt_identity()
+                refresh_jti = claims["jti"]
+                role = "nonpremiumuser"
+                ban_status = claims["ban_status"]
+                token_update = LoginLogic()
+                response = token_update.refresh_user(refresh_jti, identity, role, ban_status)
+                response["message"] = ApiConfig.USER_DOWNGRADED
+                return response
             else:
                 return {"message": ApiConfig.ADMIN_ROLE_UNCHANGEABLE}
 
@@ -122,7 +136,15 @@ class UserInfoController:
         if self.user_id is None:
             return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         self.user_info_logic.ban_user(self.user_id)
-        return {"message": ApiConfig.USER_BANNED}
+        claims = get_jwt()
+        identity = get_jwt_identity()
+        refresh_jti = claims["jti"]
+        role = claims["role"]
+        ban_status = "banned"
+        token_update = LoginLogic()
+        response = token_update.refresh_user(refresh_jti, identity, role, ban_status)
+        response["message"] = ApiConfig.USER_BANNED
+        return response
 
     @custom_error_handler
     def unban_user(self):
@@ -134,4 +156,12 @@ class UserInfoController:
         if self.user_id is None:
             return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         self.user_info_logic.unban_user(self.user_id)
-        return {"message": ApiConfig.USER_UNBANNED}
+        claims = get_jwt()
+        identity = get_jwt_identity()
+        refresh_jti = claims["jti"]
+        role = claims["role"]
+        ban_status = "unbanned"
+        token_update = LoginLogic()
+        response = token_update.refresh_user(refresh_jti, identity, role, ban_status)
+        response["message"] = ApiConfig.USER_UNBANNED
+        return response
