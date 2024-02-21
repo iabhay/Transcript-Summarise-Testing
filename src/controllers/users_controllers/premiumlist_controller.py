@@ -58,7 +58,7 @@ class PremiumlistController:
                 return response
             elif self.args is None:
                 response = self.premium_list_logic.view_all_premium_list()
-            return {"message": ApiConfig.ACCESS_RESTRICTED}
+            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         else:
             response = self.premium_list_logic.view_premium_list(self.identity)
             return response

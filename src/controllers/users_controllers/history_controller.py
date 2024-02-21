@@ -55,7 +55,7 @@ class HistoryController:
                 response = self.history_logic.view_history(self.user_id)
                 return response
             else:
-                return {"message": ApiConfig.ACCESS_RESTRICTED}
+                return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         else:
             response = self.history_logic.view_history(self.identity)
             return response

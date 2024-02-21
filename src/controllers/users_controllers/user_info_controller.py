@@ -43,7 +43,7 @@ class UserInfoController:
                 response = self.user_info_logic.view_user(self.user_id)
                 return response
             else:
-                return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
+                return {"message": ApiConfig.ACCESS_RESTRICTED}, 403, 403
         else:
             response = self.user_info_logic.view_user(self.identity)
             return response
@@ -65,7 +65,7 @@ class UserInfoController:
                 else:
                     return {"message": ApiConfig.ADMIN_ROLE_UNCHANGEABLE}
             else:
-                return {"message": ApiConfig.ACCESS_RESTRICTED}
+                return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         else:
             if self.claims["role"] != "admin":
                 response = self.user_info_logic.upgrade_non_premium_user(self.identity)
@@ -94,7 +94,7 @@ class UserInfoController:
                 else:
                     return {"message": ApiConfig.ADMIN_ROLE_UNCHANGEABLE}
             else:
-                return {"message": ApiConfig.ACCESS_RESTRICTED}
+                return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         else:
             if self.claims["role"] != "admin":
                 response = self.user_info_logic.downgrade_premium_user(self.identity)
@@ -120,7 +120,7 @@ class UserInfoController:
         Return Type -> dict
         """
         if self.user_id is None:
-            return {"message": ApiConfig.ACCESS_RESTRICTED}
+            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         self.user_info_logic.ban_user(self.user_id)
         return {"message": ApiConfig.USER_BANNED}
 
@@ -132,6 +132,6 @@ class UserInfoController:
         Return Type -> dict
         """
         if self.user_id is None:
-            return {"message": ApiConfig.ACCESS_RESTRICTED}
+            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         self.user_info_logic.unban_user(self.user_id)
         return {"message": ApiConfig.USER_UNBANNED}

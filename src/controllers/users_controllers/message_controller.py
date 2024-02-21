@@ -56,7 +56,7 @@ class MessageController:
             if self.args is None:
                 response = self.message_logic.view_all_message()
                 return response
-        return {"message": ApiConfig.ACCESS_RESTRICTED}
+        return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
 
     @custom_error_handler
     def send_message(self, user_data):
@@ -69,4 +69,4 @@ class MessageController:
             self.message_logic.send_message(self.identity, user_data["description"])
             return {"message": ApiConfig.SENT_TO_ADMIN}, 200
         else:
-            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
+            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403, 403
