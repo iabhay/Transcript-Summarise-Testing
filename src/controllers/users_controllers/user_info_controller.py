@@ -43,7 +43,7 @@ class UserInfoController:
                 response = self.user_info_logic.view_user(self.user_id)
                 return response
             else:
-                return {"message": ApiConfig.ACCESS_RESTRICTED}, 403, 403
+                return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         else:
             response = self.user_info_logic.view_user(self.identity)
             return response
