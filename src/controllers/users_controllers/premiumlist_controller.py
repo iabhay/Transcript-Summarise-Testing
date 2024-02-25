@@ -10,7 +10,7 @@ from flask_jwt_extended import get_jwt, get_jwt_identity
 from utils.exception_handler import custom_error_handler
 from business_logic.premiumlist_logic import PremiumlistLogic
 from config.api_config import ApiConfig
-
+from business_logic.message_logic import MessageLogic
 
 logger = logging.getLogger(__name__)
 
@@ -62,3 +62,15 @@ class PremiumlistController:
         else:
             response = self.premium_list_logic.view_premium_list(self.identity)
             return response
+        
+    @custom_error_handler
+    def premiumlist_request(self, url_req):
+        if self.user_id:
+            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
+        youtube_url = url_req['youtube_url']
+        msg_logic = MessageLogic()
+        description = "Premiumlist - " + youtube_url
+        response = msg_logic.send_message(self.identity, description)
+        return jsonify({"message": "Request Sent for premiumlisting"})
+        
+
