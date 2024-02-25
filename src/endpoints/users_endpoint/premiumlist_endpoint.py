@@ -78,5 +78,5 @@ class PremiumList(MethodView):
         Return Type -> Json
         """
         self.premium_controller = PremiumlistController()
-        response = self.premium_controller.premium_list_request(url_req)
+        response = self.premium_controller.premiumlist_request(url_req)
         return response
