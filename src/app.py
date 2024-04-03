@@ -11,6 +11,7 @@
 import logging
 from flask import Flask, g
 from flask_smorest import Api
+from flask_cors import CORS
 import shortuuid
 from database.mysql_database import db
 from utils.api_setup import app_setup, jwt_setup, register_blueprint, logging_configuration
@@ -25,6 +26,7 @@ def create_app() -> Flask:
         Returns -> Flask application
     """
     app = Flask(__name__)
+    CORS(app)
     app_setup(app)
     api = Api(app)
     jwt_setup(app)

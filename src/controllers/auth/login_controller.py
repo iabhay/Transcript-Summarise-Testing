@@ -8,6 +8,7 @@ from business_logic.auth.login_logic import LoginLogic
 from utils.exception_handler import custom_error_handler
 from flask_jwt_extended import get_jwt, get_jwt_identity
 
+
 class LoginController:
     """
     Class for defining Login Controller

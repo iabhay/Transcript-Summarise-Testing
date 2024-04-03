@@ -56,17 +56,17 @@ class PremiumlistController:
             if self.user_id:
                 response = self.premium_list_logic.view_premium_list(self.user_id)
                 return response
-            elif self.args is None:
+            elif request.args is None:
                 response = self.premium_list_logic.view_all_premium_list()
             return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         else:
-            response = self.premium_list_logic.view_premium_list(self.identity)
-            return response
+            if request.args is None:
+                response = self.premium_list_logic.view_premium_list(self.identity)
+                return response
+            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         
     @custom_error_handler
     def premiumlist_request(self, url_req):
-        if self.user_id:
-            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         youtube_url = url_req['youtube_url']
         msg_logic = MessageLogic()
         description = "Premiumlist - " + youtube_url
