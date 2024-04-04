@@ -56,14 +56,12 @@ class PremiumlistController:
             if self.user_id:
                 response = self.premium_list_logic.view_premium_list(self.user_id)
                 return response
-            elif request.args is None:
-                response = self.premium_list_logic.view_all_premium_list()
+            response = self.premium_list_logic.view_all_premium_list()
             return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
-        else:
-            if request.args is None:
-                response = self.premium_list_logic.view_premium_list(self.identity)
-                return response
-            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
+        elif self.claims["role"] == "premiumuser":
+            response = self.premium_list_logic.view_premium_list(self.identity)
+            return response
+        return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
         
     @custom_error_handler
     def premiumlist_request(self, url_req):
