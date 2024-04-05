@@ -23,7 +23,7 @@ class SummaryEndpoint(MethodView):
     @role_required(["nonpremiumuser", "premiumuser", "admin"])
     @jwt_required()
     @blp.arguments(UrlInputSchema)
-    def get(self, youtube_url):
+    def post(self, youtube_url):
         """
         Method to get request which verifies jwt and generate summary for the youtube url given
         Roles allowed -> nonpremiumuser
