@@ -39,3 +39,4 @@
 2024-02-25 15:21:06,798 WARNING  [api_setup.py check_if_token_in_blocklist:148] Token given is already revoked. - [REQ4ZVK]
 2024-02-25 15:22:34,760 WARNING  [api_setup.py check_if_token_in_blocklist:148] Token given is already revoked. - [REQ56Co]
 2024-02-25 15:22:34,891 WARNING  [api_setup.py check_if_token_in_blocklist:148] Token given is already revoked. - [REQ56Co]
+2024-04-07 00:58:45,356 WARNING  [api_setup.py check_if_token_in_blocklist:148] Token given is already revoked. - [REQwQXX]

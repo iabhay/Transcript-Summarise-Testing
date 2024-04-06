@@ -117,8 +117,17 @@ class UserInfoController:
         Parameter -> self
         Return Type -> dict
         """
-        if self.user_id is None:
-            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
+        if self.user_id:
+            if self.claims["role"] == "admin":
+                if self.identity != self.user_id:
+                    response = self.user_info_logic.ban_user(
+                        self.user_id
+                    )
+                    return {"message": ApiConfig.USER_BANNED}
+                else:
+                    return {"message": ApiConfig.ADMIN_ROLE_UNCHANGEABLE}
+            
+        return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
 
     @custom_error_handler
     def unban_user(self):
@@ -127,5 +136,13 @@ class UserInfoController:
         Parameter -> self
         Return Type -> dict
         """
-        if self.user_id is None:
-            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
+        if self.user_id:
+            if self.claims["role"] == "admin":
+                if self.identity != self.user_id:
+                    response = self.user_info_logic.unban_user(
+                        self.user_id
+                    )
+                    return {"message": ApiConfig.USER_UNBANNED}
+                else:
+                    return {"message": ApiConfig.ADMIN_ROLE_UNCHANGEABLE}
+        return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
