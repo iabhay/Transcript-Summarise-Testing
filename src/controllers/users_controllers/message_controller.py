@@ -53,9 +53,8 @@ class MessageController:
                 elif self.user_type == "nonpremiumuser":
                     response = self.message_logic.view_nonpremium_message(self.user_id)
                     return response
-            if self.args is None:
-                response = self.message_logic.view_all_message()
-                return response
+            response = self.message_logic.view_all_message()
+            return response
         return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
 
     @custom_error_handler
