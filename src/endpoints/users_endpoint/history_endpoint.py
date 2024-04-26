@@ -49,7 +49,7 @@ class ViewHistory(MethodView):
     get() -> Method to get history of user
     """
 
-    @role_required(["premiumuser", "admin"])
+    @role_required(["nonpremiumuser","premiumuser", "admin"])
     @jwt_required()
     def get(self):
         """
