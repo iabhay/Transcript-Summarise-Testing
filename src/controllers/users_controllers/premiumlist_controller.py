@@ -57,7 +57,7 @@ class PremiumlistController:
                 response = self.premium_list_logic.view_premium_list(self.user_id)
                 return response
             response = self.premium_list_logic.view_all_premium_list()
-            return {"message": ApiConfig.ACCESS_RESTRICTED}, 403
+            return response
         elif self.claims["role"] == "premiumuser":
             response = self.premium_list_logic.view_premium_list(self.identity)
             return response
