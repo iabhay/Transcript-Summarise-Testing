@@ -58,6 +58,7 @@ class ViewHistory(MethodView):
         Parameter -> self
         Return Type -> Json
         """
+        print('history')
         self.history_controller = HistoryController()
         response = self.history_controller.view_history()
         return response

@@ -75,4 +75,5 @@ class ContentChecker:
                 "Adult": sexual_result.severity,
                 "Violence": violence_result.severity,
             }
+            print(res)
             return res

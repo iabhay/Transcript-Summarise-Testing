@@ -15,12 +15,15 @@ load_dotenv(dotenv_path=dotenv_path)
 
 logger = logging.getLogger(__name__)
 
-MYSQL_PASSWORD = os.getenv('DB_PASSWORD')
-MYSQL_HOST = os.getenv('DB_HOST')
+# MYSQL_PASSWORD = os.getenv('DB_PASSWORD')
+MYSQL_PASSWORD = '@Abhay6030'
+# print(MYSQL_PASSWORD)
+# MYSQL_HOST = os.getenv('DB_HOST')
+MYSQL_HOST = 'localhost'
 # MYSQL_DB = os.getenv('DB_DB')
-MYSQL_PORT = os.getenv('DB_PORT')
-MYSQL_USERNAME = os.getenv('DB_USER')
-
+MYSQL_PORT = 3306
+# MYSQL_USERNAME = os.getenv('DB_USER')
+MYSQL_USERNAME = 'root'
 
 class Database:
     """
@@ -58,7 +61,7 @@ class Database:
                 user=MYSQL_USERNAME,
                 write_timeout=timeout,
                 )
-                Database.connection.autocommit(True)
+                # Database.connection.autocommit(True)
                 # CREATE_DATABASE = "CREATE DATABASE IF NOT EXISTS {}"
                 # USE_DATABASE = "USE {}"
                 # ROLLBACK_QUERY = 'ROLLBACK'
@@ -92,6 +95,9 @@ class Database:
         Parameters = query of type string, data are query parameters in tuple
         Return Type = None
         """
+        print("In save data of history")
+        print(query)
+        print(data)
         self.cursor.execute(query, data)
         self.connection.commit()
 

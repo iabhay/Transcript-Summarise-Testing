@@ -11,6 +11,7 @@ def role_required(role_list: list):
     def wrapper(fn):
         @wraps(fn)
         def decorator(*args, **kwargs):
+            print('role')
             verify_jwt_in_request()
             claims = get_jwt()
             if claims["role"] in role_list:

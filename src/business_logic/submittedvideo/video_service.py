@@ -64,6 +64,7 @@ class VideoService:
                 HistoryTableQuery.query_insert_history,
                 (hid, self.dt_string, self.uid, user_url),
             )
+            print("hid - " + hid)
             self.urlid = self.transcript_obj.extract_video_id(user_url)
 
             # checking if url is already banned
@@ -79,6 +80,7 @@ class VideoService:
                     self.uid,
                 ),
             )
+            print(premium_listing)
 
             """
             if is_banned_url -> banned,
@@ -100,6 +102,7 @@ class VideoService:
                 if len(premium_listing) == 0:
                     # Content checking using API and categorising
                     content_response = self.content_checker(transcript, user_url)
+                    print(content_response)
 
                     if len(content_response) > 0:
                         return content_response
@@ -119,6 +122,7 @@ class VideoService:
         Return Type -> dict
         """
         content_check = self.content_check_obj.analyze_text(transcript)
+        print(content_check)
 
         res = {}
         if content_check:
